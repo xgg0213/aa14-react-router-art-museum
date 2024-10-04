@@ -1,4 +1,6 @@
 import { NavLink } from 'react-router-dom';
+import './GalleryNavigation.css';
+
 
 function GalleryNavigation({galleries}) {
     // console.log(galleries)
@@ -9,8 +11,8 @@ function GalleryNavigation({galleries}) {
                 <li>
                     <NavLink 
                         to="/" 
-                        activeClassName="active" 
-                        style={({isActive}) => isActive ? { fontWeight: 'bold' } : {}}
+                        className={({ isActive }) => isActive ? 'active' : ''} 
+                        end // ensures the Home link is only active for the exact `/` route
                     >
                         Home
                     </NavLink>
@@ -19,8 +21,6 @@ function GalleryNavigation({galleries}) {
                     <li key={gallery.id}>
                         <NavLink 
                             to={`/galleries/${gallery.id}`} 
-                            className={({isActive}) => isActive? 'purple' : ''}
-                            style={({isActive}) => isActive? { fontWeight: 'bold' } : {}}
                         >
                             {gallery.name}
                         </NavLink>

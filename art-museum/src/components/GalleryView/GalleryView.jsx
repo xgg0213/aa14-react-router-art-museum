@@ -5,6 +5,7 @@
 // export default GalleryView;
 
 import { useParams, Navigate } from "react-router-dom";
+import ArtImageTitle from "../ArtImageTitle";
 
 function GalleryView({galleries}) {
     
@@ -16,9 +17,16 @@ function GalleryView({galleries}) {
         return <Navigate to="/" replace />;
     }
 
+    const arts = gallery.objects;
+    
     return (
         <div>
             <h2>{gallery.name}</h2>
+            <>
+            {arts.map((art) => (
+                <ArtImageTitle key={art.id} art={art} />  // Pass each artwork as a prop to ArtImageTile
+            ))}
+            </>
         </div>
     );
 }

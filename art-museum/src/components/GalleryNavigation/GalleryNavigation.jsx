@@ -5,10 +5,11 @@ import './GalleryNavigation.css';
 function GalleryNavigation({galleries}) {
     // console.log(galleries)
     return (
-        <nav>
+        <>
+            <nav>
             <h1>Galleries</h1>
-            <ul>
-                <li>
+
+                <span>
                     <NavLink 
                         to="/" 
                         className={({ isActive }) => isActive ? 'active' : ''} 
@@ -16,18 +17,22 @@ function GalleryNavigation({galleries}) {
                     >
                         Home
                     </NavLink>
-                </li>
+                    {<span> | </span>}
+                </span>
                 {galleries.map((gallery) => (
-                    <li key={gallery.id}>
+                    <span key={gallery.id}>
                         <NavLink 
                             to={`/galleries/${gallery.id}`} 
                         >
                             {gallery.name}
                         </NavLink>
-                    </li>
+                        { <span> | </span>}
+                    </span>
                 ))}
-            </ul>
-        </nav>
+
+            </nav>
+        </>
+        
         
     )
 }

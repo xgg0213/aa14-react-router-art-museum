@@ -4,7 +4,7 @@
 
 // export default GalleryView;
 
-import { useParams, Navigate } from "react-router-dom";
+import { useParams, Navigate, Outlet } from "react-router-dom";
 import ArtImageTitle from "../ArtImageTitle";
 
 function GalleryView({galleries}) {
